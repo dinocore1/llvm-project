@@ -1,0 +1,12 @@
+#ifndef LLVM_LIB_TARGET_C2XX_TARGETINFO_C2XXTARGETINFO_H
+#define LLVM_LIB_TARGET_C2XX_TARGETINFO_C2XXTARGETINFO_H
+
+namespace llvm {
+
+class Target;
+
+Target &getTheC2xxTarget();
+
+} // namespace llvm
+
+#endif // LLVM_LIB_TARGET_C2XX_TARGETINFO_C2XXTARGETINFO_H
