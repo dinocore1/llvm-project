@@ -1,6 +1,6 @@
 #include "C2xxTargetMachine.h"
 #include "C2xx.h"
-// #include "C2xxMachineFunctionInfo.h"
+#include "C2xxMachineFunctionInfo.h"
 #include "TargetInfo/C2xxTargetInfo.h"
 #include "llvm/CodeGen/Passes.h"
 #include "llvm/CodeGen/TargetLoweringObjectFileImpl.h"

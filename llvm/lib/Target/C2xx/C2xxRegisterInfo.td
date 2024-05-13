@@ -20,6 +20,7 @@ def PL  : C2xxReg<"PL">;
 def T   : C2xxReg<"T">;
 def TL  : C2xxReg<"TL">;
 def DP  : C2xxReg<"DP">;
+def SP  : C2xxReg<"SP">;
 def AR0 : C2xxReg<"AR0">;
 def AR1 : C2xxReg<"AR1">;
 def AR2 : C2xxReg<"AR2">;
@@ -54,6 +55,8 @@ def MULTIPLICAND_REG : RegisterClass<"C2xx", [i32], 32, (add XT)>;
 def MULTIPLICAND_REG16: RegisterClass<"C2xx", [i16], 16, (add T, TL)>;
 
 def DATAPAGE_REG : RegisterClass<"C2xx", [i16], 16, (add DP)>;
+
+def STACKPOINTER_REG : RegisterClass<"C2xx", [i16], 16, (add SP)>;
 
 def GP16 : RegisterClass<"C2xx", [i16], 16, (add AR0, AR1, AR2, AR3, AR4, AR5, AR6, AR7)>;
 def GP32 : RegisterClass<"C2xx", [i32], 32, (add XAR0, XAR1, XAR2, XAR3, XAR4, XAR5, XAR6, XAR7)>;

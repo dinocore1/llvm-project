@@ -23,8 +23,8 @@ public:
 private:
   virtual void anchor();
   bool ExtendedInsts = false;
-  // C2xxInstrInfo InstrInfo;
-  // C2xxTargetLowering TLInfo;
+  C2xxInstrInfo InstrInfo;
+  C2xxTargetLowering TLInfo;
   SelectionDAGTargetInfo TSInfo;
   C2xxFrameLowering FrameLowering;
 

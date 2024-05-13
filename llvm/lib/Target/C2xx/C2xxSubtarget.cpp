@@ -17,7 +17,6 @@ void C2xxSubtarget::anchor() { }
 C2xxSubtarget &
 C2xxSubtarget::initializeSubtargetDependencies(StringRef CPU, StringRef FS) {
   ExtendedInsts = false;
-  HWMultMode = NoHWMult;
 
   StringRef CPUName = CPU;
   if (CPUName.empty())
