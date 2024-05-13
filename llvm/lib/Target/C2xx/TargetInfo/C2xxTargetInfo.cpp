@@ -8,6 +8,6 @@ Target &llvm::getTheC2xxTarget() {
 }
 
 extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeC2xxTargetInfo() {
-  RegisterTarget<Triple::c28x> X(getTheC2xxTarget(), "c28x",
+  RegisterTarget<Triple::c2xx> X(getTheC2xxTarget(), "c2xx",
                                    "C2xx [experimental]", "C2xx");
 }

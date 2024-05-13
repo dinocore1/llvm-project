@@ -1,8 +1,8 @@
 include "llvm/Target/Target.td"
 
-include "C28xRegisterInfo.td"
+include "C2xxRegisterInfo.td"
 
 def : Processor<"generic", NoItineraries, []>;
 
-def C28x : Target {
+def C2xx : Target {
 }
