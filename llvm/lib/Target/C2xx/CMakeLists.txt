@@ -2,7 +2,13 @@ add_llvm_component_group(C2xx)
 
 set(LLVM_TARGET_DEFINITIONS C2xx.td)
 
+# tablegen(LLVM C2xxGenAsmMatcher.inc -gen-asm-matcher)
+tablegen(LLVM C2xxGenAsmWriter.inc -gen-asm-writer)
+tablegen(LLVM C2xxGenCallingConv.inc -gen-callingconv)
+tablegen(LLVM C2xxGenDAGISel.inc -gen-dag-isel)
+tablegen(LLVM C2xxGenDisassemblerTables.inc -gen-disassembler)
 tablegen(LLVM C2xxGenInstrInfo.inc -gen-instr-info)
+tablegen(LLVM C2xxGenMCCodeEmitter.inc -gen-emitter)
 tablegen(LLVM C2xxGenRegisterInfo.inc -gen-register-info)
 tablegen(LLVM C2xxGenSubtargetInfo.inc -gen-subtarget)
 

@@ -13,8 +13,8 @@ using namespace llvm;
 extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeC2xxTarget() {
   // Register the target.
   RegisterTargetMachine<C2xxTargetMachine> X(getTheC2xxTarget());
-  PassRegistry &PR = *PassRegistry::getPassRegistry();
-  initializeC2xxDAGToDAGISelPass(PR);
+  // PassRegistry &PR = *PassRegistry::getPassRegistry();
+  // initializeC2xxDAGToDAGISelPass(PR);
 }
 
 static Reloc::Model getEffectiveRelocModel(std::optional<Reloc::Model> RM) {
