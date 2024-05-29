@@ -66,6 +66,8 @@ BitVector C2xxRegisterInfo::getReservedRegs(const MachineFunction &MF) const {
   const C2xxFrameLowering *TFI = getFrameLowering(MF);
 
   Reserved.set(C2xx::SP);
+  Reserved.set(C2xx::ST0);
+  Reserved.set(C2xx::ST1);
 
   // TODO: are ther other reserved registers?
   

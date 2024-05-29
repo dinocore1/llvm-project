@@ -25,6 +25,8 @@ namespace llvm {
     static const char *getRegisterName(MCRegister Reg);
 
   private:
+    void printOperand(const MCInst *MI, unsigned OpNo, raw_ostream &O,
+                      const char *Modifier = nullptr);
    
 
   };

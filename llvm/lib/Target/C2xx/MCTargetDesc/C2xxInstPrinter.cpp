@@ -26,3 +26,18 @@ void C2xxInstPrinter::printInst(const MCInst *MI, uint64_t Address,
   printAnnotation(O, Annot);
 }
 
+void C2xxInstPrinter::printOperand(const MCInst *MI, unsigned OpNo,
+                                     raw_ostream &O, const char *Modifier) {
+  assert((Modifier == nullptr || Modifier[0] == 0) && "No modifiers supported");
+  const MCOperand &Op = MI->getOperand(OpNo);
+  if (Op.isReg()) {
+    O << getRegisterName(Op.getReg());
+  } else if (Op.isImm()) {
+    O << '#' << Op.getImm();
+  } else {
+    assert(Op.isExpr() && "unknown operand kind in printOperand");
+    O << '#';
+    Op.getExpr()->print(O, &MAI);
+  }
+}
+
