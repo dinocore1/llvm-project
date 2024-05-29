@@ -55,7 +55,7 @@ static MCAsmInfo *createC2xxMCAsmInfo(const MCRegisterInfo &MRI,
 
 static MCSubtargetInfo *
 createC2xxMCSubtargetInfo(const Triple &TT, StringRef CPU, StringRef FS) {
-  return createC2xxMCSubtargetInfoImpl(TT, CPU, /*TuneCPU*/ CPU, FS);
+  return createC2xxMCSubtargetInfoImpl(TT, CPU, CPU, FS);
 }
 
 static MCInstPrinter *createC2xxMCInstPrinter(const Triple &T,
@@ -76,8 +76,7 @@ extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeC2xxTargetMC() {
   TargetRegistry::RegisterMCRegInfo(T, createC2xxMCRegisterInfo);
   TargetRegistry::RegisterMCSubtargetInfo(T, createC2xxMCSubtargetInfo);
   TargetRegistry::RegisterMCInstPrinter(T, createC2xxMCInstPrinter);
-  TargetRegistry::RegisterMCCodeEmitter(T, createC2xxMCCodeEmitter);
+  // TargetRegistry::RegisterMCCodeEmitter(T, createC2xxMCCodeEmitter);
   TargetRegistry::RegisterMCAsmBackend(T, createC2xxMCAsmBackend);
-  TargetRegistry::RegisterObjectTargetStreamer(
-      T, createC2xxObjectTargetStreamer);
+  // TargetRegistry::RegisterObjectTargetStreamer(T, createC2xxObjectTargetStreamer);
 }

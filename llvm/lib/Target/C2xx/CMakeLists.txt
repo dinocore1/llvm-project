@@ -18,6 +18,8 @@ add_llvm_target(C2xxCodeGen
   C2xxSubtarget.cpp
   C2xxTargetMachine.cpp
   C2xxMachineFunctionInfo.cpp
+  C2xxInstrInfo.cpp
+  C2xxRegisterInfo.cpp
   
   LINK_COMPONENTS
   Core

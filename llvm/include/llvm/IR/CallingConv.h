@@ -267,6 +267,9 @@ namespace CallingConv {
     /// Calling convention used for RISC-V V-extension.
     RISCV_VectorCall = 110,
 
+    /// C2XX_INTR - Calling convention used for C2xx interrupt routines.
+    C2XX_INTR = 111,
+
     /// The highest possible ID. Must be some 2^k - 1.
     MaxID = 1023
   };
