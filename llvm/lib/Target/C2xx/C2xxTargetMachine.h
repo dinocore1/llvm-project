@@ -12,7 +12,7 @@ class StringRef;
 /// C2xxTargetMachine
 ///
 class C2xxTargetMachine : public LLVMTargetMachine {
-  std::unique_ptr<TargetLoweringObjectFile> TLOF;
+  // std::unique_ptr<TargetLoweringObjectFile> TLOF;
   C2xxSubtarget Subtarget;
 
 public:
@@ -26,15 +26,15 @@ public:
   const C2xxSubtarget *getSubtargetImpl(const Function &F) const override {
     return &Subtarget;
   }
-  TargetPassConfig *createPassConfig(PassManagerBase &PM) override;
+  // TargetPassConfig *createPassConfig(PassManagerBase &PM) override;
 
-  TargetLoweringObjectFile *getObjFileLowering() const override {
-    return TLOF.get();
-  }
+  // TargetLoweringObjectFile *getObjFileLowering() const override {
+  //   return TLOF.get();
+  // }
 
-  MachineFunctionInfo *
-  createMachineFunctionInfo(BumpPtrAllocator &Allocator, const Function &F,
-                            const TargetSubtargetInfo *STI) const override;
+  // MachineFunctionInfo *
+  // createMachineFunctionInfo(BumpPtrAllocator &Allocator, const Function &F,
+  //                           const TargetSubtargetInfo *STI) const override;
 }; // C2xxTargetMachine.
 
 } // end namespace llvm

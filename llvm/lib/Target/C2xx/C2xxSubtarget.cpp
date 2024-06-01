@@ -30,5 +30,7 @@ C2xxSubtarget::initializeSubtargetDependencies(StringRef CPU, StringRef FS) {
 C2xxSubtarget::C2xxSubtarget(const Triple &TT, const std::string &CPU,
                                  const std::string &FS, const TargetMachine &TM)
     : C2xxGenSubtargetInfo(TT, CPU, CPU, FS),
-      InstrInfo(initializeSubtargetDependencies(CPU, FS)), TLInfo(TM, *this),
-      FrameLowering(*this) {}
+      InstrInfo(initializeSubtargetDependencies(CPU, FS))
+      // TLInfo(TM, *this),
+      // FrameLowering(*this)
+{}

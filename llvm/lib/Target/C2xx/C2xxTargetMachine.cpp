@@ -12,7 +12,7 @@ using namespace llvm;
 
 extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeC2xxTarget() {
   // Register the target.
-  RegisterTargetMachine<C2xxTargetMachine> X(getTheC2xxTarget());
+  // RegisterTargetMachine<C2xxTargetMachine> X(getTheC2xxTarget());
   // PassRegistry &PR = *PassRegistry::getPassRegistry();
   // initializeC2xxDAGToDAGISelPass(PR);
 }
@@ -35,54 +35,48 @@ C2xxTargetMachine::C2xxTargetMachine(const Target &T, const Triple &TT,
     : LLVMTargetMachine(T, computeDataLayout(TT, CPU, Options), TT, CPU, FS,
                         Options, getEffectiveRelocModel(RM),
                         getEffectiveCodeModel(CM, CodeModel::Small), OL),
-      TLOF(std::make_unique<TargetLoweringObjectFileELF>()),
+      //TLOF(std::make_unique<TargetLoweringObjectFileELF>()),
       Subtarget(TT, std::string(CPU), std::string(FS), *this) {
   initAsmInfo();
 }
 
 C2xxTargetMachine::~C2xxTargetMachine() = default;
 
-namespace {
-/// C2xx Code Generator Pass Configuration Options.
-class C2xxPassConfig : public TargetPassConfig {
-public:
-  C2xxPassConfig(C2xxTargetMachine &TM, PassManagerBase &PM)
-    : TargetPassConfig(TM, PM) {}
+// namespace {
+// /// C2xx Code Generator Pass Configuration Options.
+// class C2xxPassConfig : public TargetPassConfig {
+// public:
+//   C2xxPassConfig(C2xxTargetMachine &TM, PassManagerBase &PM)
+//     : TargetPassConfig(TM, PM) {}
 
-  C2xxTargetMachine &getC2xxTargetMachine() const {
-    return getTM<C2xxTargetMachine>();
-  }
+//   C2xxTargetMachine &getC2xxTargetMachine() const {
+//     return getTM<C2xxTargetMachine>();
+//   }
 
-  void addIRPasses() override;
-  bool addInstSelector() override;
-  void addPreEmitPass() override;
-};
-} // namespace
+//   void addIRPasses() override;
+//   bool addInstSelector() override;
+//   void addPreEmitPass() override;
+// };
+// } // namespace
 
-TargetPassConfig *C2xxTargetMachine::createPassConfig(PassManagerBase &PM) {
-  return new C2xxPassConfig(*this, PM);
-}
+// TargetPassConfig *C2xxTargetMachine::createPassConfig(PassManagerBase &PM) {
+//   return new C2xxPassConfig(*this, PM);
+// }
 
-MachineFunctionInfo *C2xxTargetMachine::createMachineFunctionInfo(
-    BumpPtrAllocator &Allocator, const Function &F,
-    const TargetSubtargetInfo *STI) const {
-  return C2xxMachineFunctionInfo::create<C2xxMachineFunctionInfo>(Allocator,
-                                                                      F, STI);
-}
+// MachineFunctionInfo *C2xxTargetMachine::createMachineFunctionInfo(
+//     BumpPtrAllocator &Allocator, const Function &F,
+//     const TargetSubtargetInfo *STI) const {
+//   return C2xxMachineFunctionInfo::create<C2xxMachineFunctionInfo>(Allocator,
+//                                                                       F, STI);
+// }
 
-void C2xxPassConfig::addIRPasses() {
-  addPass(createAtomicExpandLegacyPass());
+// void C2xxPassConfig::addIRPasses() {
+//   addPass(createAtomicExpandLegacyPass());
+//   TargetPassConfig::addIRPasses();
+// }
 
-  TargetPassConfig::addIRPasses();
-}
-
-bool C2xxPassConfig::addInstSelector() {
-  // Install an instruction selector.
-  addPass(createC2xxISelDag(getC2xxTargetMachine(), getOptLevel()));
-  return false;
-}
-
-void C2xxPassConfig::addPreEmitPass() {
-  // Must run branch selection immediately preceding the asm printer.
-  addPass(createC2xxBranchSelectionPass());
-}
+// bool C2xxPassConfig::addInstSelector() {
+//   Install an instruction selector.
+//   addPass(createC2xxISelDag(getC2xxTargetMachine(), getOptLevel()));
+//   return false;
+// }

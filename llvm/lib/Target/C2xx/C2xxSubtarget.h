@@ -2,7 +2,7 @@
 #define LLVM_LIB_TARGET_C2XX_C2XXSUBTARGET_H
 
 #include "C2xxFrameLowering.h"
-#include "C2xxISelLowering.h"
+// #include "C2xxISelLowering.h"
 #include "C2xxInstrInfo.h"
 #include "C2xxRegisterInfo.h"
 #include "llvm/CodeGen/SelectionDAGTargetInfo.h"
@@ -24,9 +24,9 @@ private:
   virtual void anchor();
   bool ExtendedInsts = false;
   C2xxInstrInfo InstrInfo;
-  C2xxTargetLowering TLInfo;
+  // C2xxTargetLowering TLInfo;
   SelectionDAGTargetInfo TSInfo;
-  C2xxFrameLowering FrameLowering;
+  // C2xxFrameLowering FrameLowering;
 
 public:
   /// This constructor initializes the data members to match that
@@ -42,20 +42,20 @@ public:
   void ParseSubtargetFeatures(StringRef CPU, StringRef TuneCPU, StringRef FS);
 
 
-  const TargetFrameLowering *getFrameLowering() const override {
-    return &FrameLowering;
-  }
+  // const TargetFrameLowering *getFrameLowering() const override {
+  //   return &FrameLowering;
+  // }
   const C2xxInstrInfo *getInstrInfo() const override { return &InstrInfo; }
   const C2xxRegisterInfo *getRegisterInfo() const override {
     return &getInstrInfo()->getRegisterInfo();
   }
 
-  const C2xxTargetLowering *getTargetLowering() const override {
-    return &TLInfo;
-  }
-  const SelectionDAGTargetInfo *getSelectionDAGInfo() const override {
-    return &TSInfo;
-  }
+  // const C2xxTargetLowering *getTargetLowering() const override {
+  //   return &TLInfo;
+  // }
+  // const SelectionDAGTargetInfo *getSelectionDAGInfo() const override {
+  //   return &TSInfo;
+  // }
 };
 } // End llvm namespace
 

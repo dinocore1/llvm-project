@@ -28,8 +28,6 @@ class PassRegistry;
 FunctionPass *createC2xxISelDag(C2xxTargetMachine &TM,
                                   CodeGenOptLevel OptLevel);
 
-FunctionPass *createC2xxBranchSelectionPass();
-
 void initializeC2xxDAGToDAGISelPass(PassRegistry &);
 
 } // namespace llvm

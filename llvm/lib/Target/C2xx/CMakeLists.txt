@@ -20,6 +20,7 @@ add_llvm_target(C2xxCodeGen
   C2xxMachineFunctionInfo.cpp
   C2xxInstrInfo.cpp
   C2xxRegisterInfo.cpp
+  C2xxISelDAGToDAG.cpp
   
   LINK_COMPONENTS
   Core
