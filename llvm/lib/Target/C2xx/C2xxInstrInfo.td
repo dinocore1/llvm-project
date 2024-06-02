@@ -19,11 +19,11 @@ def ABORTI : C2xxInst<(outs), (ins), "ABORTI"> {
 }
 
 let Uses = [SP] in {
-def pushACC : C2xxInst<(outs), (ins RegisterOperand<ACC_REG32>:$acc), "PUSH ACC"> {
+def pushACC : C2xxInst<(outs), (ins RegisterOperand<ACC_REG32>:$acc), "PUSH $acc"> {
     let Inst{15-0} = 0b0001111010111101;
 }
 
-def pushXT : C2xxInst<(outs), (ins RegisterOperand<XT_REG32>:$xt), "PUSH XT"> {
+def pushXT : C2xxInst<(outs), (ins RegisterOperand<XT_REG32>:$xt), "PUSH $xt"> {
     let Inst{15-0} = 0b1010101110111101;
 }
 
