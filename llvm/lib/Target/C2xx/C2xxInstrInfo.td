@@ -5,8 +5,8 @@ def GR32 : RegisterOperand<GP32>;
 
 // uimm7 predicate - True if the immediate is in the range [0, 127].
 def UImm7Operand : AsmOperandClass {
-  let Name = "UImm6";
-  let DiagnosticType = "InvalidImm0_127";
+  let Name = "UImm7";
+  // let DiagnosticType = "InvalidImm0_127";
 }
 
 def i7imm : Operand<i8>, ImmLeaf<i8, [{ return Imm >=0 && Imm < 128; }]> {

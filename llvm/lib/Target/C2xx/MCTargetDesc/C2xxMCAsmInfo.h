@@ -15,4 +15,4 @@ public:
 
 } // namespace llvm
 
-#endif
+#endif // LLVM_LIB_TARGET_C2XX_MCTARGETDESC_C2XXMCASMINFO_H

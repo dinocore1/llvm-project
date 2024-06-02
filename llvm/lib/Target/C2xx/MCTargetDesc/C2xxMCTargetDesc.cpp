@@ -76,7 +76,7 @@ extern "C" LLVM_EXTERNAL_VISIBILITY void LLVMInitializeC2xxTargetMC() {
   TargetRegistry::RegisterMCRegInfo(T, createC2xxMCRegisterInfo);
   TargetRegistry::RegisterMCSubtargetInfo(T, createC2xxMCSubtargetInfo);
   TargetRegistry::RegisterMCInstPrinter(T, createC2xxMCInstPrinter);
-  // TargetRegistry::RegisterMCCodeEmitter(T, createC2xxMCCodeEmitter);
+  TargetRegistry::RegisterMCCodeEmitter(T, createC2xxMCCodeEmitter);
   TargetRegistry::RegisterMCAsmBackend(T, createC2xxMCAsmBackend);
   // TargetRegistry::RegisterObjectTargetStreamer(T, createC2xxObjectTargetStreamer);
 }

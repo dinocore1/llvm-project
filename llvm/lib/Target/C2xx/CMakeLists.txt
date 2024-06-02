@@ -2,7 +2,7 @@ add_llvm_component_group(C2xx)
 
 set(LLVM_TARGET_DEFINITIONS C2xx.td)
 
-# tablegen(LLVM C2xxGenAsmMatcher.inc -gen-asm-matcher)
+tablegen(LLVM C2xxGenAsmMatcher.inc -gen-asm-matcher)
 tablegen(LLVM C2xxGenAsmWriter.inc -gen-asm-writer)
 tablegen(LLVM C2xxGenCallingConv.inc -gen-callingconv)
 tablegen(LLVM C2xxGenDAGISel.inc -gen-dag-isel)
@@ -34,3 +34,4 @@ add_llvm_target(C2xxCodeGen
 
 add_subdirectory(MCTargetDesc)
 add_subdirectory(TargetInfo)
+add_subdirectory(AsmParser)
